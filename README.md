@@ -1,6 +1,7 @@
 # Andreas Möllberg
 
-My name is Andreas Möllberg and I am studying to become a Java/AWS cloud developer.
+
+My name is Andreas Möllberg and I am studying to become a Java/AWS cloud developer. [About me](./about-me.md)
 
 ## Education
 
