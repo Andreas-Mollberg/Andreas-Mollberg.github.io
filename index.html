@@ -40,7 +40,8 @@
                         <img src="/img/adventure_game2.png" class="hover-img" alt="Adventure Game Hover">
                     </div>
                     <h3>Adventure Game Demo</h3>
-                    <p>This was a basic text-based adventure game I made in order to get a better understanding of Object-Oriented programming principles.</p>
+                    <p>This was a basic text-based adventure game I made in order to get a better understanding of
+                        Object-Oriented programming principles.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
                 <a href="https://github.com/Andreas-Mollberg/Weather_App_Frontend" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
@@ -58,7 +59,8 @@
                         <img src="/img/plant-planet2.png" class="hover-img" alt="Plant Planet Hover">
                     </div>
                     <h3>Plant Planet</h3>
-                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger monitors.</p>
+                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger
+                        monitors.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
                 <a href="https://github.com/Andreas-Mollberg/university_app" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
@@ -67,7 +69,8 @@
                         <img src="/img/university-app2.png" class="hover-img" alt="University App Hover">
                     </div>
                     <h3>University App</h3>
-                    <p>An exercise in MySQL and relationships between tables. Allows you to create students, universities and courses and assign them to each other.</p>
+                    <p>An exercise in MySQL and relationships between tables. Allows you to create students,
+                        universities and courses and assign them to each other.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
                 <a href="https://github.com/Andreas-Mollberg/project-5" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
@@ -118,6 +121,108 @@
     <footer>
         <p>&copy; 2024 Andreas Möllberg</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dbName = 'notesDB';
+            const storeName = 'notes';
+            let db;
+
+            // Open IndexedDB
+            const request = indexedDB.open(dbName, 1);
+
+            request.onupgradeneeded = function (event) {
+                db = event.target.result;
+                if (!db.objectStoreNames.contains(storeName)) {
+                    db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
+                }
+            };
+
+            request.onsuccess = function (event) {
+                db = event.target.result;
+                displayNotes();
+            };
+
+            request.onerror = function (event) {
+                console.error('Error opening IndexedDB:', event.target.errorCode);
+            };
+
+            const saveNoteButton = document.getElementById('save-note');
+            const repoInput = document.getElementById('repo-input');
+            const observationInput = document.getElementById('observation-input');
+            const notesList = document.getElementById('notes-list');
+
+            saveNoteButton.addEventListener('click', () => {
+                const repoName = repoInput.value.trim();
+                const observation = observationInput.value.trim();
+
+                if (repoName && observation) {
+                    const transaction = db.transaction([storeName], 'readwrite');
+                    const store = transaction.objectStore(storeName);
+                    const note = { repoName, observation };
+                    store.add(note);
+
+                    transaction.oncomplete = function () {
+                        repoInput.value = '';
+                        observationInput.value = '';
+                        displayNotes();
+                    };
+
+                    transaction.onerror = function (event) {
+                        console.error('Error saving note:', event.target.errorCode);
+                    };
+                }
+            });
+
+            function displayNotes() {
+                notesList.innerHTML = '';
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.openCursor();
+
+                request.onsuccess = function (event) {
+                    const cursor = event.target.result;
+                    if (cursor) {
+                        const noteCard = document.createElement('div');
+                        noteCard.classList.add('note-card');
+
+                        noteCard.innerHTML = `
+                            <h4>Repository: ${cursor.value.repoName}</h4>
+                            <p>Observation: ${cursor.value.observation}</p>
+                            <button class="delete-note" data-id="${cursor.value.id}">Delete</button>
+                        `;
+
+                        notesList.appendChild(noteCard);
+
+                        const deleteButton = noteCard.querySelector('.delete-note');
+                        deleteButton.addEventListener('click', () => {
+                            deleteNote(cursor.value.id);
+                        });
+
+                        cursor.continue();
+                    }
+                };
+
+                request.onerror = function (event) {
+                    console.error('Error retrieving notes:', event.target.errorCode);
+                };
+            }
+
+            function deleteNote(id) {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                store.delete(id);
+
+                transaction.oncomplete = function () {
+                    displayNotes();
+                };
+
+                transaction.onerror = function (event) {
+                    console.error('Error deleting note:', event.target.errorCode);
+                };
+            }
+        });
+    </script>
 </body>
 
 </html>
