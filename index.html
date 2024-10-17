@@ -13,12 +13,17 @@
 <body>
     <header>
         <h1>Andreas Möllberg</h1>
-        <nav>
-            <a href="#home" data-section="home" style="text-decoration: none; color: inherit;">Home</a>
-            <a href="#projects" data-section="projects" style="text-decoration: none; color: inherit;">Projects</a>
-            <a href="#skills" data-section="skills" style="text-decoration: none; color: inherit;">Skills</a>
-            <a href="#contact" data-section="contact" style="text-decoration: none; color: inherit;">Contact</a>
-            <a href="#notes" data-section="notes" style="text-decoration: none; color: inherit;">Notes</a>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="nav-menu">
+            <a href="#home" data-section="home">Home</a>
+            <a href="#projects" data-section="projects">Projects</a>
+            <a href="#skills" data-section="skills">Skills</a>
+            <a href="#contact" data-section="contact">Contact</a>
+            <a href="#notes" data-section="notes">Notes</a>
         </nav>
     </header>
 
@@ -26,25 +31,23 @@
         <section id="home" class="content-section">
             <h2>About Me</h2>
             <img src="/img/me.jpg" class="shrink-image" alt="Andreas">
-            <p>Hi, I'm Andreas, a Cloud Developer student focusing on Amazon Web Services and Java. Coding has always
-                been an interest of mine, and now that I've dedicated more time to it, I've gotten passionate about
-                back-end development. My goal is to deepen my knowledge and grow my expertise.</p>
+            <p>Hi, I'm Andreas, a Cloud Developer student focusing on Amazon Web Services and Java. Coding has always been an interest of mine, and now that I've dedicated more time to it, I've gotten passionate about back-end development. My goal is to deepen my knowledge and grow my expertise.</p>
         </section>
 
         <section id="projects" class="content-section" style="display:none;">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <a href="https://github.com/Andreas-Mollberg/Adventure_Game" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
+                <a href="https://github.com/Andreas-Mollberg/Adventure_Game" target="_blank" class="project-card">
                     <div class="image-container">
                         <img src="/img/adventure_game1.png" class="default-img" alt="Adventure Game">
                         <img src="/img/adventure_game2.png" class="hover-img" alt="Adventure Game Hover">
                     </div>
                     <h3>Adventure Game Demo</h3>
-                    <p>This was a basic text-based adventure game I made in order to get a better understanding of
-                        Object-Oriented programming principles.</p>
+                    <p>This was a basic text-based adventure game I made in order to get a better understanding of Object-Oriented programming principles.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
-                <a href="https://github.com/Andreas-Mollberg/Weather_App_Frontend" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
+
+                <a href="https://github.com/Andreas-Mollberg/Weather_App_Frontend" target="_blank" class="project-card">
                     <div class="image-container">
                         <img src="/img/weather-app1.png" class="default-img" alt="Weather App">
                         <img src="/img/weather-app2.png" class="hover-img" alt="Weather App Hover">
@@ -53,33 +56,44 @@
                     <p>This was made as a first attempt at using an external API and my first attempt at a GUI.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
-                <a href="https://github.com/Andreas-Mollberg/plants-planet" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
+
+                <a href="https://github.com/Andreas-Mollberg/plants-planet" target="_blank" class="project-card">
                     <div class="image-container">
                         <img src="/img/plant-planet1.png" class="default-img" alt="Plant Planet">
                         <img src="/img/plant-planet2.png" class="hover-img" alt="Plant Planet Hover">
                     </div>
                     <h3>Plant Planet</h3>
-                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger
-                        monitors.</p>
+                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger monitors.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
-                <a href="https://github.com/Andreas-Mollberg/university_app" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
+
+                <a href="https://github.com/Andreas-Mollberg/university_app" target="_blank" class="project-card">
                     <div class="image-container">
                         <img src="/img/university-app1.png" class="default-img" alt="University App">
                         <img src="/img/university-app2.png" class="hover-img" alt="University App Hover">
                     </div>
                     <h3>University App</h3>
-                    <p>An exercise in MySQL and relationships between tables. Allows you to create students,
-                        universities and courses and assign them to each other.</p>
+                    <p>An exercise in MySQL and relationships between tables. Allows you to create students, universities and courses and assign them to each other.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
-                <a href="https://github.com/Andreas-Mollberg/project-5" target="_blank" class="project-card" style="text-decoration: none; color: inherit;">
+
+                <a href="https://github.com/Andreas-Mollberg/project-5" target="_blank" class="project-card">
                     <div class="image-container">
                         <img src="/img/project5.jpg" class="default-img" alt="Project 5">
                         <img src="/img/project5-hover.jpg" class="hover-img" alt="Project 5 Hover">
                     </div>
                     <h3>Project 5</h3>
                     <p>Description of Project 5...</p>
+                    <span class="view-more">View on GitHub</span>
+                </a>
+
+                <a href="https://github.com/Andreas-Mollberg/project-5" target="_blank" class="project-card">
+                    <div class="image-container">
+                        <img src="/img/project6.jpg" class="default-img" alt="Project 6">
+                        <img src="/img/project6-hover.jpg" class="hover-img" alt="Project 6 Hover">
+                    </div>
+                    <h3>Project 6</h3>
+                    <p>Description of Project 6...</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
             </div>
@@ -102,7 +116,7 @@
 
         <section id="contact" class="content-section" style="display:none;">
             <h2>Contact Me</h2>
-            <p>If you want to get in touch, feel free to reach out on <a href="https://www.linkedin.com/in/andreasmollberg/" class="linkedin-link" target="_blank" style="text-decoration: none; color: inherit;">LinkedIn</a>.</p>
+            <p>If you want to get in touch, feel free to reach out on <a href="https://www.linkedin.com/in/andreasmollberg/" class="linkedin-link" target="_blank">LinkedIn</a>.</p>
         </section>
 
         <section id="notes" class="content-section" style="display:none;">
@@ -112,117 +126,13 @@
                 <textarea id="observation-input" placeholder="Write your observation here..."></textarea>
                 <button id="save-note">Save Note</button>
             </div>
-            <div id="notes-list">
-                <!-- Notes will be displayed here -->
-            </div>
+            <div id="notes-list"></div>
         </section>
     </div>
 
     <footer>
         <p>&copy; 2024 Andreas Möllberg</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dbName = 'notesDB';
-            const storeName = 'notes';
-            let db;
-
-            // Open IndexedDB
-            const request = indexedDB.open(dbName, 1);
-
-            request.onupgradeneeded = function (event) {
-                db = event.target.result;
-                if (!db.objectStoreNames.contains(storeName)) {
-                    db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
-                }
-            };
-
-            request.onsuccess = function (event) {
-                db = event.target.result;
-                displayNotes();
-            };
-
-            request.onerror = function (event) {
-                console.error('Error opening IndexedDB:', event.target.errorCode);
-            };
-
-            const saveNoteButton = document.getElementById('save-note');
-            const repoInput = document.getElementById('repo-input');
-            const observationInput = document.getElementById('observation-input');
-            const notesList = document.getElementById('notes-list');
-
-            saveNoteButton.addEventListener('click', () => {
-                const repoName = repoInput.value.trim();
-                const observation = observationInput.value.trim();
-
-                if (repoName && observation) {
-                    const transaction = db.transaction([storeName], 'readwrite');
-                    const store = transaction.objectStore(storeName);
-                    const note = { repoName, observation };
-                    store.add(note);
-
-                    transaction.oncomplete = function () {
-                        repoInput.value = '';
-                        observationInput.value = '';
-                        displayNotes();
-                    };
-
-                    transaction.onerror = function (event) {
-                        console.error('Error saving note:', event.target.errorCode);
-                    };
-                }
-            });
-
-            function displayNotes() {
-                notesList.innerHTML = '';
-                const transaction = db.transaction([storeName], 'readonly');
-                const store = transaction.objectStore(storeName);
-                const request = store.openCursor();
-
-                request.onsuccess = function (event) {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        const noteCard = document.createElement('div');
-                        noteCard.classList.add('note-card');
-
-                        noteCard.innerHTML = `
-                            <h4>Repository: ${cursor.value.repoName}</h4>
-                            <p>Observation: ${cursor.value.observation}</p>
-                            <button class="delete-note" data-id="${cursor.value.id}">Delete</button>
-                        `;
-
-                        notesList.appendChild(noteCard);
-
-                        const deleteButton = noteCard.querySelector('.delete-note');
-                        deleteButton.addEventListener('click', () => {
-                            deleteNote(cursor.value.id);
-                        });
-
-                        cursor.continue();
-                    }
-                };
-
-                request.onerror = function (event) {
-                    console.error('Error retrieving notes:', event.target.errorCode);
-                };
-            }
-
-            function deleteNote(id) {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                store.delete(id);
-
-                transaction.oncomplete = function () {
-                    displayNotes();
-                };
-
-                transaction.onerror = function (event) {
-                    console.error('Error deleting note:', event.target.errorCode);
-                };
-            }
-        });
-    </script>
 </body>
 
 </html>
