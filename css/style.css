@@ -69,6 +69,13 @@ header h1 {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+.content-wrapper {
+    flex: 1;
+    padding: 8rem 2rem 2rem; 
+    margin-top: 60px; 
+}
+
+
 /* -----Navigation Menu Styles----- */
 .nav-menu {
     display: flex;
@@ -99,12 +106,13 @@ header h1 {
         align-items: flex-start;
         width: 100%;
         position: fixed;
-        top: 60px; 
+        top: 0; 
         left: 0;
         background-color: rgba(10, 25, 47, 0.95);
         transition: all 0.3s ease;
         z-index: 1050; 
-        padding: 1rem 2rem;
+        padding: 4rem 2rem; 
+        height: 100vh; 
     }
 
     .nav-menu.active {
@@ -121,7 +129,7 @@ header h1 {
 /* -----Content Wrapper----- */
 .content-wrapper {
     flex: 1;
-    padding: 6rem 2rem 2rem;
+    padding: 8rem 2rem 2rem; 
 }
 
 /* -----Home Section----- */
@@ -220,23 +228,37 @@ header h1 {
 
 .default-img {
     opacity: 1;
-    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .hover-img {
     opacity: 0;
-    z-index: 2;
+    transition: opacity 0.3s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.image-container:hover .default-img {
-    opacity: 0;
+/* Hover effect for larger screens */
+@media (min-width: 1025px) {
+    .image-container:hover .default-img {
+        opacity: 0;
+    }
+
+    .image-container:hover .hover-img {
+        opacity: 1;
+    }
 }
 
-.image-container:hover .hover-img {
-    opacity: 1;
+/* Click-based image change for smaller screens */
+@media (max-width: 1024px) {
+    .project-card.clicked .default-img {
+        opacity: 0;
+    }
+
+    .project-card.clicked .hover-img {
+        opacity: 1;
+    }
 }
 
 /* ----- Skills Section Styles ----- */
@@ -405,7 +427,7 @@ footer p {
     }
 
     .content-wrapper {
-        padding: 4rem 0.5rem 0.5rem;
+        padding: 8rem 0.5rem 0.5rem; 
     }
 
     header nav a {
