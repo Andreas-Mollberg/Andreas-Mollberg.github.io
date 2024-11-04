@@ -95,7 +95,6 @@ header nav a:hover {
     font-size: 1.5rem;
 }
 
-/* Highlight the current active link */
 header nav a.active {
     color: #64ffda;
     font-weight: 600;
@@ -103,7 +102,6 @@ header nav a.active {
     text-underline-offset: 6px; 
 }
 
-/* ----- Content Wrapper ----- */
 .content-wrapper {
     flex: 1;
     padding: 6rem 2rem 2rem;
