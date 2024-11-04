@@ -40,11 +40,12 @@ header h1 {
     font-size: 1.8rem;
 }
 
-/* Hamburger Menu Styles */
+/* -----Hamburger Menu Styles----- */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 1100;
 }
 
 .hamburger div {
@@ -52,10 +53,22 @@ header h1 {
     height: 3px;
     background-color: #ccd6f6;
     margin: 4px 0;
-    transition: 0.4s;
+    transition: all 0.3s ease;
 }
 
-/* Navigation Menu Styles */
+.hamburger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line2 {
+    opacity: 0;
+}
+
+.hamburger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* -----Navigation Menu Styles----- */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -87,6 +100,8 @@ header h1 {
         top: 60px;
         left: 0;
         background-color: rgba(10, 25, 47, 0.95);
+        transition: all 0.3s ease;
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -96,6 +111,7 @@ header h1 {
     .nav-menu a {
         margin: 1rem 0;
         text-align: center;
+        padding: 1rem;
     }
 }
 
@@ -378,40 +394,7 @@ footer p {
     background-color: #d62828;
 }
 
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    header {
-        flex-direction: column;
-    }
-
-    header nav a {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
-
-    .content-wrapper {
-        padding: 5rem 1rem 1rem;
-    }
-
-    .project-card {
-        padding: 0.8rem;
-    }
-
-    .note-form input,
-    .note-form textarea {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-
-    .note-form button {
-        width: 100%;
-    }
-}
-
-/* Media Queries for Small Mobile (320px and above) */
+/* Media Queries for Small Devices (480px and below) */
 @media screen and (max-width: 480px) {
     header {
         flex-direction: column;
