@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     const projectCards = document.querySelectorAll('.project-card');
     let db;
+    let editingNoteId = null;
+
     const request = indexedDB.open('notesDB', 1);
 
     request.onerror = function(event) {
@@ -26,20 +28,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const repoInput = document.getElementById('repo-input').value;
         const observationInput = document.getElementById('observation-input').value;
 
-        const transaction = db.transaction(["notes"], "readwrite");
-        const objectStore = transaction.objectStore("notes");
+        if (editingNoteId) {
+            const transaction = db.transaction(["notes"], "readwrite");
+            const objectStore = transaction.objectStore("notes");
+            const request = objectStore.put({ id: editingNoteId, repo: repoInput, observation: observationInput });
 
-        const note = { repo: repoInput, observation: observationInput };
-        const request = objectStore.add(note);
+            request.onsuccess = function() {
+                editingNoteId = null;
+                document.getElementById('save-note').textContent = "Save Note";
+                clearInputs();
+                loadNotes();
+            };
+        } else {
+            const transaction = db.transaction(["notes"], "readwrite");
+            const objectStore = transaction.objectStore("notes");
+            const note = { repo: repoInput, observation: observationInput };
+            const request = objectStore.add(note);
 
-        request.onsuccess = function() {
-            loadNotes();
-        };
-
-        request.onerror = function(event) {
-            console.error("Error adding note:", event.target.error);
-        };
+            request.onsuccess = function() {
+                clearInputs();
+                loadNotes();
+            };
+        }
     });
+
+    function clearInputs() {
+        document.getElementById('repo-input').value = '';
+        document.getElementById('observation-input').value = '';
+    }
 
     function loadNotes() {
         const notesList = document.getElementById('notes-list');
@@ -57,7 +73,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 noteElement.innerHTML = `
                     <h4>${note.repo}</h4>
                     <p>${note.observation}</p>
+                    <button class="edit-note">Edit</button>
+                    <button class="delete-note">Delete</button>
                 `;
+
+                noteElement.querySelector('.edit-note').addEventListener('click', function() {
+                    document.getElementById('repo-input').value = note.repo;
+                    document.getElementById('observation-input').value = note.observation;
+                    editingNoteId = note.id;
+                    document.getElementById('save-note').textContent = "Update Note";
+                });
+
+                noteElement.querySelector('.delete-note').addEventListener('click', function() {
+                    const deleteTransaction = db.transaction(["notes"], "readwrite");
+                    const deleteObjectStore = deleteTransaction.objectStore("notes");
+                    deleteObjectStore.delete(note.id).onsuccess = function() {
+                        loadNotes();
+                    };
+                });
+
                 notesList.appendChild(noteElement);
                 cursor.continue();
             }
@@ -96,15 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     projectCards.forEach(card => {
         card.addEventListener('click', function(event) {
-        
             if (window.innerWidth <= 1024) {
                 if (event.target.tagName === 'A') {
                     return;
                 }
-
                 event.preventDefault();
                 this.classList.toggle('clicked');
-
                 projectCards.forEach(otherCard => {
                     if (otherCard !== this) {
                         otherCard.classList.remove('clicked');
