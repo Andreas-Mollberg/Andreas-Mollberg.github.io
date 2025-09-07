@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andreas Möllberg Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script defer src="/js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
 </head>
 
 <body>
@@ -23,119 +23,138 @@
             <a href="#projects" data-section="projects">Projects</a>
             <a href="#skills" data-section="skills">Skills</a>
             <a href="#contact" data-section="contact">Contact</a>
-            <a href="#notes" data-section="notes">Notes</a>
         </nav>
     </header>
-    
-    
+
+
 
     <div class="content-wrapper">
         <section id="home" class="content-section">
             <h2>About Me</h2>
-            <img src="/img/me.jpg" class="shrink-image" alt="Andreas">
-            <p>Hi, I'm Andreas, a Cloud Developer student focusing on Amazon Web Services and Java. Coding has always been an interest of mine, and now that I've dedicated more time to it, I've gotten passionate about back-end development. My goal is to deepen my knowledge and grow my expertise.</p>
+            <img src="img/me.jpg" class="shrink-image" alt="Andreas" fetchpriority="high" decoding="async">
+            <p>Hi, I'm Andreas, a Cloud Developer student focusing on Amazon Web Services and Java. Coding has always
+                been an interest of mine, and now that I've dedicated more time to it, I've gotten passionate about
+                back-end development. My goal is to deepen my knowledge and grow my expertise.</p>
         </section>
 
         <section id="projects" class="content-section" style="display:none;">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <a href="https://github.com/Andreas-Mollberg/Adventure_Game" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/Adventure_Game" target="_blank" class="project-card"
+                    rel="noopener noreferrer">
                     <div class="image-container">
-                        <img src="/img/adventure_game1.png" class="default-img" alt="Adventure Game">
-                        <img src="/img/adventure_game2.png" class="hover-img" alt="Adventure Game Hover">
+                        <img src="img/adventure_game1.png" class="default-img" alt="Adventure Game" loading="lazy"
+                            decoding="async">
+                        <img src="img/adventure_game2.png" class="hover-img" alt="Adventure Game (hover)" loading="lazy"
+                            decoding="async">
                     </div>
                     <h3>Adventure Game Demo</h3>
-                    <p>This was a basic text-based adventure game I made in order to get a better understanding of Object-Oriented programming principles.</p>
+                    <p>This was a basic text-based adventure game I made in order to get a better understanding of
+                        Object-Oriented programming principles.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
 
-                <a href="https://github.com/Andreas-Mollberg/Weather_App_Frontend" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/Weather_App_Frontend" target="_blank" class="project-card"
+                    rel="noopener noreferrer">
                     <div class="image-container">
-                        <img src="/img/weather-app1.png" class="default-img" alt="Weather App">
-                        <img src="/img/weather-app2.png" class="hover-img" alt="Weather App Hover">
+                        <img src="img/weather-app1.png" class="default-img" alt="Weather App" loading="lazy"
+                            decoding="async">
+                        <img src="img/weather-app2.png" class="hover-img" alt="Weather App (hover)" loading="lazy"
+                            decoding="async">
                     </div>
                     <h3>Weather App</h3>
                     <p>This was made as a first attempt at using an external API and my first attempt at a GUI.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
 
-                <a href="https://github.com/Andreas-Mollberg/plants-planet" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/plants-planet" target="_blank" class="project-card"
+                    rel="noopener noreferrer">
                     <div class="image-container">
-                        <img src="/img/plant-planet1.png" class="default-img" alt="Plant Planet">
-                        <img src="/img/plant-planet2.png" class="hover-img" alt="Plant Planet Hover">
+                        <img src="img/plant-planet1.png" class="default-img" alt="Plant Planet" loading="lazy"
+                            decoding="async">
+                        <img src="img/plant-planet2.png" class="hover-img" alt="Plant Planet (hover)" loading="lazy"
+                            decoding="async">
                     </div>
                     <h3>Plant Planet</h3>
-                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger monitors.</p>
+                    <p>A first proper foray into HTML and CSS. A modern design that is adaptable to mobile and larger
+                        monitors.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
 
-                <a href="https://github.com/Andreas-Mollberg/university_app" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/university_app" target="_blank" class="project-card"
+                    rel="noopener noreferrer">
                     <div class="image-container">
-                        <img src="/img/university-app1.png" class="default-img" alt="University App">
-                        <img src="/img/university-app2.png" class="hover-img" alt="University App Hover">
+                        <img src="img/university-app1.png" class="default-img" alt="University App" loading="lazy"
+                            decoding="async">
+                        <img src="img/university-app2.png" class="hover-img" alt="University App (hover)" loading="lazy"
+                            decoding="async">
                     </div>
                     <h3>University App</h3>
-                    <p>An exercise in MySQL and relationships between tables. Allows you to create students, universities and courses and assign them to each other.</p>
+                    <p>An exercise in MySQL and relationships between tables. Allows you to create students,
+                        universities and courses and assign them to each other.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
 
-                <a href="https://github.com/Andreas-Mollberg/Yearly_HoF_App" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/Yearly_HoF_App" target="_blank" class="project-card"
+                    rel="noopener noreferrer">
                     <div class="image-container">
-                        <img src="/img/hof1.png" class="default-img" alt="Hall of Fame App">
-                        <img src="/img/hof2.png" class="hover-img" alt="Hall of Fame App Hover">
+                        <img src="img/hof1.png" class="default-img" alt="Hall of Fame App" loading="lazy"
+                            decoding="async">
+                        <img src="img/hof2.png" class="hover-img" alt="Hall of Fame App (hover)" loading="lazy"
+                            decoding="async">
                     </div>
                     <h3>Hall of Fame App</h3>
-                    <p>A web app for personal use that allows the user to save video games and movies to a MySQL database with a basic web interface.
-                    </p>
+                    <p>A web app for personal use that allows the user to save video games and movies to a MySQL
+                        database with a basic web interface.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
 
-                <a href="https://github.com/Andreas-Mollberg/project-5" target="_blank" class="project-card">
+                <a href="https://github.com/Andreas-Mollberg/collection-manager-portfolio-project" target="_blank"
+                    rel="noopener noreferrer" class="project-card">
                     <div class="image-container">
-                        <img src="/img/project6.jpg" class="default-img" alt="Project 6">
-                        <img src="/img/project6-hover.jpg" class="hover-img" alt="Project 6 Hover">
+                        <img src="img/collection-manager1.png" class="default-img" alt="Collection Manager – dashboard"
+                            loading="lazy" decoding="async">
+                        <img src="img/collection-manager2.png" class="hover-img"
+                            alt="Collection Manager – collection view" loading="lazy" decoding="async">
                     </div>
-                    <h3>Project 6</h3>
-                    <p>Description of Project 6...</p>
+                    <h3>Collection Manager</h3>
+                    <p>A full-stack Spring Boot + Thymeleaf app to organize collections with images, tags,
+                        visibility controls (Public/Friends/Private) and a friends system.</p>
                     <span class="view-more">View on GitHub</span>
                 </a>
             </div>
-        </section>
-
-        <section id="skills" class="content-section" style="display:none;">
-            <h2>My Skills</h2>
-            <ul>
-                <li>Java</li>
-                <li>MySQL</li>
-                <li>AWS</li>
-                <li>Spring Boot</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>CI/CD</li>
-                <li>Git</li>
-                <li>Terraform</li>
-                <li>Ansible</li>
-            </ul>
-        </section>
-
-        <section id="contact" class="content-section" style="display:none;">
-            <h2>Contact Me</h2>
-            <p>If you want to get in touch, feel free to reach out on <a href="https://www.linkedin.com/in/andreasmollberg/" class="linkedin-link" target="_blank">LinkedIn</a>.</p>
-        </section>
-
-        <section id="notes" class="content-section" style="display:none;">
-            <h2>My Notes</h2>
-            <div class="note-form">
-                <input type="text" id="repo-input" placeholder="Repository name">
-                <textarea id="observation-input" placeholder="Write your observation here..."></textarea>
-                <button id="save-note">Save Note</button>
-            </div>
-            <div id="notes-list"></div>
         </section>
     </div>
 
+    </section>
+
+    <section id="skills" class="content-section" style="display:none;">
+        <h2>My Skills</h2>
+        <ul>
+            <li>Java</li>
+            <li>MySQL</li>
+            <li>AWS</li>
+            <li>Spring Boot</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>CI/CD</li>
+            <li>Git</li>
+            <li>Terraform</li>
+            <li>Ansible</li>
+            <li>Python</li>
+            <li>Hibernate Search</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="content-section" style="display:none;">
+        <h2>Contact Me</h2>
+        <p>If you want to get in touch, feel free to reach out on <a href="https://www.linkedin.com/in/andreasmollberg/"
+                class="linkedin-link" target="_blank">LinkedIn</a>.</p>
+    </section>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Andreas Möllberg</p>
+        <p>&copy; 2025 Andreas Möllberg</p>
     </footer>
 </body>
 

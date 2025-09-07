@@ -20,7 +20,15 @@ body {
     min-height: 100vh;
 }
 
-/*----- Header Styling -----*/
+:root { --nav-offset: 90px; }
+.content-section { scroll-margin-top: var(--nav-offset); }
+
+@media (max-width: 470px) {
+  :root { --nav-offset: 70px; }
+}
+
+
+/*----- Header -----*/
 header {
     position: fixed;
     top: 0;
@@ -41,7 +49,7 @@ header h1 {
     font-size: 1.8rem;
 }
 
-/*----- Hamburger Menu Styling -----*/
+/*----- Hamburger Menu -----*/
 .hamburger {
     display: none;
     flex-direction: column;
@@ -76,7 +84,7 @@ header h1 {
 }
 
 
-/*----- Navigation Menu Styling -----*/
+/*----- Navigation Menu -----*/
 .nav-menu {
     display: flex;
     list-style: none;
@@ -107,7 +115,7 @@ header h1 {
     padding: 8rem 2rem 2rem; 
 }
 
-/*----- Home Section Styling -----*/
+/*----- Home Section -----*/
 #home {
     text-align: center;
     padding: 3rem 0;
@@ -131,7 +139,7 @@ header h1 {
     line-height: 1.6;
 }
 
-/*----- Projects Section Styling -----*/
+/*----- Projects Section -----*/
 #projects {
     padding: 3rem 0;
 }
@@ -206,21 +214,22 @@ header h1 {
     align-self: flex-end; 
 }
 
-.image-container {
-    position: relative;
-    width: 100%;
-    height: 200px; 
-    border-radius: 4px;
-    overflow: hidden;
+.image-container{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #0e1a2b;
 }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 4px;
+.image-container img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
 }
+
 
 .default-img {
     opacity: 1;
@@ -257,15 +266,20 @@ header h1 {
     }
 }
 
-/*----- Skills Section Styling -----*/
+/*----- Skills Section -----*/
 #skills {
-    padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0;
+  text-align: center;
 }
 
 #skills h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  margin: 0 0 1rem;
 }
 
 #skills ul {
@@ -274,7 +288,7 @@ header h1 {
     gap: 1rem; 
     justify-items: center;
     padding: 0;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     list-style-type: none;
 }
@@ -301,10 +315,21 @@ header h1 {
     transform: scale(1.05); 
 }
 
-/*----- Contact Section Styling -----*/
+@media (max-width: 480px) {
+  #skills { gap: 2rem; }
+  #skills h2 { margin-bottom: 0.5rem; }
+}
+
+/*----- Contact Section -----*/
 #contact {
-    text-align: center;
-    padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0;
+  text-align: center;
 }
 
 #contact h2 {
@@ -322,7 +347,7 @@ header h1 {
     text-decoration: underline;
 }
 
-/*----- Footer Styling -----*/
+/*----- Footer -----*/
 footer {
     text-align: center;
     padding: 1rem;
@@ -334,103 +359,6 @@ footer {
 
 footer p {
     margin-bottom: 0;
-}
-
-/*----- Notes Section Styling -----*/
-#notes {
-    padding: 3rem 0;
-    text-align: center;
-}
-
-.note-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.note-input-group {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-#repo-input,
-#observation-input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #64ffda;
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: #0a192f;
-    color: #ccd6f6;
-}
-
-#observation-input {
-    height: 100px;
-    resize: vertical;
-}
-
-#save-note {
-    width: 150px;
-    padding: 0.8rem;
-    background-color: #64ffda;
-    border: none;
-    border-radius: 4px;
-    color: #0a192f;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#save-note:hover {
-    background-color: #52d4b5;
-}
-
-.notes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-.note-card {
-    background-color: #112240;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    text-align: left;
-    color: #ccd6f6;
-    word-wrap: break-word; 
-    overflow-wrap: break-word;
-}
-
-.note-card p {
-    margin-bottom: 1rem;
-    white-space: pre-wrap; 
-}
-
-.note-card h4 {
-    margin-bottom: 0.5rem;
-    color: #64ffda;
-}
-
-.note-card button {
-    background-color: #e63946;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.note-card button:hover {
-    background-color: #d62828;
 }
 
 @media (max-width: 768px) {
